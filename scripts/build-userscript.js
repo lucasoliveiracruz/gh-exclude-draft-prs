@@ -3,6 +3,7 @@ const path = require('node:path');
 
 const root = path.join(__dirname, '..');
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
+const [{js: sources}] = manifest.content_scripts;
 
 const header = `// ==UserScript==
 // @name         ${manifest.name}
@@ -16,5 +17,8 @@ const header = `// ==UserScript==
 
 `;
 
-const source = fs.readFileSync(path.join(root, 'src', 'exclude-drafts.js'), 'utf8');
-fs.writeFileSync(path.join(root, 'github-exclude-draft-prs.user.js'), header + source);
+const body = sources
+	.map(source => fs.readFileSync(path.join(root, source), 'utf8'))
+	.join('\n');
+
+fs.writeFileSync(path.join(root, 'github-exclude-draft-prs.user.js'), header + body);

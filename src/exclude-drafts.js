@@ -3,9 +3,13 @@
 	const EXPLICIT_DRAFT_QUALIFIER = /\bdraft:|\bis:draft\b/;
 	const REPO_PULL_REQUEST_LIST = /^\/[^/]+\/[^/]+\/pulls\/?$/;
 
+	function isRepoPullRequestList(href) {
+		return REPO_PULL_REQUEST_LIST.test(new URL(href).pathname);
+	}
+
 	function nextUrl(href) {
 		const url = new URL(href);
-		if (!REPO_PULL_REQUEST_LIST.test(url.pathname)) {
+		if (!isRepoPullRequestList(href)) {
 			return null;
 		}
 
@@ -19,19 +23,11 @@
 		return url.href === href ? null : url.href;
 	}
 
-	function excludeDrafts() {
-		const next = nextUrl(location.href);
-		if (next) {
-			location.replace(next);
-		}
-	}
+	const api = {isRepoPullRequestList, nextUrl};
 
-	if (typeof document !== 'undefined') {
-		excludeDrafts();
-		document.addEventListener('turbo:load', excludeDrafts);
-	}
-
-	if (typeof module !== 'undefined') {
-		module.exports = {nextUrl};
+	if (typeof module === 'undefined') {
+		globalThis.GhDraftPrs = Object.assign(globalThis.GhDraftPrs ?? {}, api);
+	} else {
+		module.exports = api;
 	}
 })();

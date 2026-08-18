@@ -1,12 +1,22 @@
 {
 	"manifest_version": 3,
 	"name": "GitHub: exclude draft PRs by default",
-	"version": "1.0.0",
-	"description": "Adds draft:false to repository pull request lists unless you asked for drafts explicitly.",
+	"version": "1.1.0",
+	"description": "Excludes draft pull requests from repository PR lists, or collapses them behind a toggle.",
+	"permissions": ["storage"],
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": false
+	},
 	"content_scripts": [
 		{
 			"matches": ["https://github.com/*"],
-			"js": ["src/exclude-drafts.js"],
+			"js": [
+				"src/settings.js",
+				"src/exclude-drafts.js",
+				"src/collapse-drafts.js",
+				"src/main.js"
+			],
 			"run_at": "document_start"
 		}
 	]

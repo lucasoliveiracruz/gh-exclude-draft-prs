@@ -56,3 +56,11 @@ test('ignores everything that is not a repository pull request list', () => {
 		assert.equal(nextUrl(GITHUB + path), null, path);
 	}
 });
+
+test('recognises repository pull request lists', () => {
+	const {isRepoPullRequestList} = require('../src/exclude-drafts.js');
+	assert.ok(isRepoPullRequestList(`${GITHUB}/owner/repo/pulls`));
+	assert.ok(isRepoPullRequestList(`${GITHUB}/owner/repo/pulls?q=is%3Apr`));
+	assert.ok(!isRepoPullRequestList(`${GITHUB}/owner/repo/pulls/123`));
+	assert.ok(!isRepoPullRequestList(`${GITHUB}/pulls`));
+});

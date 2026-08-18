@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>GitHub draft PRs</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 20px;
+			width: 320px;
+			font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			color: #1f2328;
+			background: #ffffff;
+		}
+
+		h1 {
+			margin: 0 0 4px;
+			font-size: 15px;
+		}
+
+		p {
+			margin: 0 0 16px;
+			color: #59636e;
+			font-size: 12px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 12px;
+		}
+
+		span {
+			display: block;
+			margin-left: 22px;
+			color: #59636e;
+			font-size: 12px;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			body {
+				color: #f0f6fc;
+				background: #0d1117;
+			}
+
+			p, span {
+				color: #9198a1;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Draft pull requests</h1>
+	<p>Applies to repository pull request lists.</p>
+
+	<label>
+		<input type="radio" name="mode" value="exclude"> Exclude
+		<span>Adds <code>draft:false</code> to the query. Drafts never load.</span>
+	</label>
+
+	<label>
+		<input type="radio" name="mode" value="collapse"> Collapse
+		<span>Drafts stay on the page, hidden behind a toggle at the top of the list.</span>
+	</label>
+
+	<label>
+		<input type="radio" name="mode" value="off"> Off
+		<span>Leave GitHub alone.</span>
+	</label>
+
+	<script src="src/settings.js"></script>
+	<script src="src/options.js"></script>
+</body>
+</html>
