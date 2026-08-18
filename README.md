@@ -10,7 +10,7 @@ alongside it.
 
 ## Modes
 
-Pick one in the extension's options (right-click the extension → Options).
+Pick one at `chrome://extensions` → Details → Extension options.
 
 | Mode | Behavior |
 | --- | --- |
