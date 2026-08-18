@@ -3,14 +3,13 @@
 Keeps draft pull requests out of your way on repository PR lists. Ships as a Chrome extension and
 as a userscript built from the same source.
 
-Refined GitHub has no equivalent: `global-search-filters` was removed in
-[#6248](https://github.com/refined-github/refined-github/pull/6248) and re-adding it was
-[closed as not planned](https://github.com/refined-github/refined-github/issues/7658). This runs
-alongside it.
+![A pull request list with 14 drafts collapsed behind a toggle](docs/collapse-mode.png)
 
 ## Modes
 
 Pick one at `chrome://extensions` → Details → Extension options.
+
+![The options page, with Exclude selected](docs/options.png)
 
 | Mode | Behavior |
 | --- | --- |
@@ -30,7 +29,7 @@ slots in the 25-per-page budget, and the count in the toggle is per-page, not pe
 ## Install as a userscript
 
 1. Install [Violentmonkey](https://violentmonkey.github.io/) or Tampermonkey.
-2. Drag `github-exclude-draft-prs.user.js` onto a Chrome tab.
+2. Open [github-exclude-draft-prs.user.js](https://raw.githubusercontent.com/lucasoliveiracruz/gh-exclude-draft-prs/main/github-exclude-draft-prs.user.js) and confirm the install.
 
 The userscript has no options UI — `chrome.storage` is extension-only — so it always runs in the
 default mode. To change it, edit `DEFAULT_MODE` in `src/settings.js` and rebuild.
