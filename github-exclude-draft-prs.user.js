@@ -1,8 +1,12 @@
 // ==UserScript==
 // @name         GitHub: exclude draft PRs by default
-// @namespace    locrz
-// @version      1.1.0
+// @namespace    https://github.com/lucasoliveiracruz/gh-exclude-draft-prs
+// @version      1.1.1
 // @description  Excludes draft pull requests from repository PR lists, or collapses them behind a toggle.
+// @homepageURL  https://github.com/lucasoliveiracruz/gh-exclude-draft-prs
+// @supportURL   https://github.com/lucasoliveiracruz/gh-exclude-draft-prs/issues
+// @downloadURL  https://raw.githubusercontent.com/lucasoliveiracruz/gh-exclude-draft-prs/main/github-exclude-draft-prs.user.js
+// @updateURL    https://raw.githubusercontent.com/lucasoliveiracruz/gh-exclude-draft-prs/main/github-exclude-draft-prs.user.js
 // @match        https://github.com/*
 // @run-at       document-start
 // @grant        none
