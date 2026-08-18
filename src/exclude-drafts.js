@@ -1,13 +1,3 @@
-// ==UserScript==
-// @name         GitHub: exclude draft PRs by default
-// @namespace    locrz
-// @version      1.0.0
-// @description  Adds draft:false to repository pull request lists unless you asked for drafts explicitly.
-// @match        https://github.com/*
-// @run-at       document-start
-// @grant        none
-// ==/UserScript==
-
 (() => {
 	const DEFAULT_QUERY = 'is:pr is:open';
 	const EXPLICIT_DRAFT_QUALIFIER = /\bdraft:|\bis:draft\b/;

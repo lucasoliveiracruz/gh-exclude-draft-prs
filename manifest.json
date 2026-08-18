@@ -1,0 +1,13 @@
+{
+	"manifest_version": 3,
+	"name": "GitHub: exclude draft PRs by default",
+	"version": "1.0.0",
+	"description": "Adds draft:false to repository pull request lists unless you asked for drafts explicitly.",
+	"content_scripts": [
+		{
+			"matches": ["https://github.com/*"],
+			"js": ["src/exclude-drafts.js"],
+			"run_at": "document_start"
+		}
+	]
+}

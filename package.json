@@ -1,0 +1,10 @@
+{
+	"name": "gh-exclude-draft-prs",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Excludes draft pull requests from GitHub repository PR lists by default",
+	"scripts": {
+		"build": "node scripts/build-userscript.js",
+		"test": "node --test \"test/*.test.js\""
+	}
+}
